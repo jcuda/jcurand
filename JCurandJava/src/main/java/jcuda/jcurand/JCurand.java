@@ -29,6 +29,7 @@
 package jcuda.jcurand;
 
 import jcuda.*;
+import jcuda.runtime.JCuda;
 import jcuda.runtime.cudaStream_t;
 
 /**
@@ -72,7 +73,10 @@ public class JCurand
     {
         if (!initialized)
         {
-            LibUtils.loadLibrary("JCurand");
+            String libraryBaseName = "JCurand-" + JCuda.getJCudaVersion();
+            String libraryName = 
+                LibUtils.createPlatformLibraryName(libraryBaseName);
+            LibUtils.loadLibrary(libraryName);
             initialized = true;
         }
     }

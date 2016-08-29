@@ -1,1 +1,6 @@
-JCurandJava/target/
+/JCurandJava/target/
+/JCurandJava/.settings
+/JCurandJava/.classpath
+/JCurandJava/.project
+/target
+/nativeLibraries
