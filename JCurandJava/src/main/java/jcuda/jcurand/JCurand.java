@@ -358,6 +358,19 @@ public class JCurand
     private native static int curandGetVersionNative(int version[]);
 
     /**
+     * Obtains the value of the specified property. 
+     * 
+     * @param type The {@link libraryPropertyType}
+     * @param value The value
+     * @return CUFFT_SUCCESS, CUFFT_INVALID_TYPE, CUFFT_INVALID_VALUE
+     */
+    public static int curandGetProperty(int type, int value[])
+    {
+        return checkResult(curandGetPropertyNative(type, value));
+    }
+    private static native int curandGetPropertyNative(int type, int value[]);
+    
+    /**
      * <pre>
      * Set the current stream for CURAND kernel launches.
      *

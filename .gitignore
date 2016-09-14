@@ -4,3 +4,5 @@
 /JCurandJava/.project
 /target
 /nativeLibraries
+/.settings
+/.project

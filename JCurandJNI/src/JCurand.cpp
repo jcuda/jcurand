@@ -118,6 +118,39 @@ bool toNative(JNIEnv *env, jobject &input, double* &output)
 }
 
 
+JNIEXPORT jint JNICALL Java_jcuda_jcurand_JCurand_curandGetPropertyNative(JNIEnv *env, jclass cls, jint type, jintArray value)
+{
+    // Null-checks for non-primitive arguments
+    // type is primitive
+    if (value == NULL)
+    {
+        ThrowByName(env, "java/lang/NullPointerException", "Parameter 'value' is null for curandGetProperty");
+        return JCURAND_STATUS_INTERNAL_ERROR;
+    }
+
+    // Log message
+    Logger::log(LOG_TRACE, "Executing curandGetProperty(type=%d, value=%p)\n",
+        type, value);
+
+    // Native variable declarations
+    libraryPropertyType type_native;
+    int value_native;
+
+    // Obtain native variable values
+    type_native = (libraryPropertyType)type;
+    // value is write-only
+
+    // Native function call
+    curandStatus_t jniResult_native = curandGetProperty(type_native, &value_native);
+
+    // Write back native variable values
+    // type is primitive
+    if (!set(env, value, 0, (jint)value_native)) return JCURAND_STATUS_INTERNAL_ERROR;
+
+    // Return the result
+    jint jniResult = (jint)jniResult_native;
+    return jniResult;
+}
 
 
 
