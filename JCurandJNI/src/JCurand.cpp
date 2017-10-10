@@ -1584,7 +1584,7 @@ JNIEXPORT jint JNICALL Java_jcuda_jcurand_JCurand_curandGetDirectionVectors32Nat
         {
             arrayData[j] = (jint)vectors_native[i][j];
         }
-        env->ReleasePrimitiveArrayCritical(intArray, arrayData, JNI_COMMIT);
+        env->ReleasePrimitiveArrayCritical(intArray, arrayData, 0);
         env->SetObjectArrayElement(intArrays, i, intArray);
         if (env->ExceptionCheck())
         {
@@ -1665,7 +1665,7 @@ JNIEXPORT jint JNICALL Java_jcuda_jcurand_JCurand_curandGetScrambleConstants32Na
     {
         arrayData[i] = (jint)constants_native[i];
     }
-    env->ReleasePrimitiveArrayCritical(intArray, arrayData, JNI_COMMIT);
+    env->ReleasePrimitiveArrayCritical(intArray, arrayData, 0);
     if (env->ExceptionCheck())
     {
         return JCURAND_STATUS_INTERNAL_ERROR;
@@ -1773,7 +1773,7 @@ JNIEXPORT jint JNICALL Java_jcuda_jcurand_JCurand_curandGetDirectionVectors64Nat
         {
             arrayData[j] = (jlong)vectors_native[i][j];
         }
-        env->ReleasePrimitiveArrayCritical(longArray, arrayData, JNI_COMMIT);
+        env->ReleasePrimitiveArrayCritical(longArray, arrayData, 0);
         env->SetObjectArrayElement(longArrays, i, longArray);
         if (env->ExceptionCheck())
         {
@@ -1854,7 +1854,7 @@ JNIEXPORT jint JNICALL Java_jcuda_jcurand_JCurand_curandGetScrambleConstants64Na
     {
         arrayData[i] = (jlong)constants_native[i];
     }
-    env->ReleasePrimitiveArrayCritical(longArray, arrayData, JNI_COMMIT);
+    env->ReleasePrimitiveArrayCritical(longArray, arrayData, 0);
     if (env->ExceptionCheck())
     {
         return JCURAND_STATUS_INTERNAL_ERROR;
