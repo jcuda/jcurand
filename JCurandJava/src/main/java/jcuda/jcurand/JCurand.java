@@ -514,7 +514,8 @@ public class JCurand
      * @param num - Number of random 32-bit values to generate
      *
      * @return
-     *
+     * 
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *     a previous kernel launch
@@ -581,7 +582,8 @@ public class JCurand
      * @param num - Number of floats to generate
      *
      * @return
-     *
+     * 
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -616,6 +618,7 @@ public class JCurand
      *
      * @return
      *
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -667,6 +670,7 @@ public class JCurand
      *
      * @return
      *
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -718,6 +722,7 @@ public class JCurand
      *
      * @return
      *
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -771,6 +776,7 @@ public class JCurand
      *
      * @return
      *
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -823,6 +829,7 @@ public class JCurand
      *
      * @return
      *
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -915,6 +922,8 @@ public class JCurand
      * @param lambda - lambda for the Poisson distribution
      *
      * @return
+     * 
+     * - CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * - CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * - CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *    a previous kernel launch
@@ -947,6 +956,7 @@ public class JCurand
      *
      * @return
      *
+     * CURAND_STATUS_ALLOCATION_FAILED if memory could not be allocated
      * CURAND_STATUS_NOT_INITIALIZED if the generator was never created
      * CURAND_STATUS_PREEXISTING_FAILURE if there was an existing error from
      *     a previous kernel launch
