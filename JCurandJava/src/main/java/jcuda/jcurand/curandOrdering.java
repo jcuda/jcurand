@@ -2,7 +2,7 @@
  * JCurand - Java bindings for CURAND, the NVIDIA CUDA random
  * number generation library, to be used with JCuda
  *
- * Copyright (c) 2010-2015 Marco Hutter - http://www.jcuda.org
+ * Copyright (c) 2010-2020 Marco Hutter - http://www.jcuda.org
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -28,7 +28,7 @@
 package jcuda.jcurand;
 
 /**
- * CURAND orderings of results in memory
+ * CURAND ordering of results in memory
  */
 public class curandOrdering
 {
@@ -37,13 +37,17 @@ public class curandOrdering
      */
     public static final int CURAND_ORDERING_PSEUDO_BEST = 100;
     /**
-     * Specific default 4096 thread sequence for pseudorandom results
+     * Specific default thread sequence for pseudorandom results, same as CURAND_ORDERING_PSEUDO_BEST
      */
     public static final int CURAND_ORDERING_PSEUDO_DEFAULT = 101;
     /**
      * Specific seeding pattern for fast lower quality pseudorandom results
      */
     public static final int CURAND_ORDERING_PSEUDO_SEEDED = 102;
+    /**
+     * Specific legacy sequence for pseudorandom results, guaranteed to remain the same for all cuRAND release
+     */
+    public static final int CURAND_ORDERING_PSEUDO_LEGACY = 103;
     /**
      * Specific n-dimensional ordering for quasirandom results
      */
@@ -52,7 +56,10 @@ public class curandOrdering
     /**
      * Private constructor to prevent instantiation
      */
-    private curandOrdering(){}
+    private curandOrdering()
+    {
+        // Private constructor to prevent instantiation
+    }
 
     /**
      * Returns a string representation of the given constant
@@ -66,9 +73,10 @@ public class curandOrdering
             case CURAND_ORDERING_PSEUDO_BEST: return "CURAND_ORDERING_PSEUDO_BEST";
             case CURAND_ORDERING_PSEUDO_DEFAULT: return "CURAND_ORDERING_PSEUDO_DEFAULT";
             case CURAND_ORDERING_PSEUDO_SEEDED: return "CURAND_ORDERING_PSEUDO_SEEDED";
+            case CURAND_ORDERING_PSEUDO_LEGACY: return "CURAND_ORDERING_PSEUDO_LEGACY";
             case CURAND_ORDERING_QUASI_DEFAULT: return "CURAND_ORDERING_QUASI_DEFAULT";
         }
-        return "INVALID curandOrdering";
+        return "INVALID curandOrdering: "+n;
     }
 }
 
