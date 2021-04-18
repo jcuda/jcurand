@@ -28,8 +28,13 @@
 
 package jcuda.jcurand;
 
-import jcuda.*;
-import jcuda.runtime.JCuda;
+import jcuda.CudaException;
+import jcuda.JCudaVersion;
+import jcuda.LibUtils;
+import jcuda.LibUtilsCuda;
+import jcuda.LogLevel;
+import jcuda.Pointer;
+import jcuda.libraryPropertyType;
 import jcuda.runtime.cudaStream_t;
 
 /**
@@ -73,7 +78,7 @@ public class JCurand
     {
         if (!initialized)
         {
-            String libraryBaseName = "JCurand-" + JCuda.getJCudaVersion();
+            String libraryBaseName = "JCurand-" + JCudaVersion.get();
             String libraryName = 
                 LibUtils.createPlatformLibraryName(libraryBaseName);
             LibUtilsCuda.loadLibrary(libraryName);
