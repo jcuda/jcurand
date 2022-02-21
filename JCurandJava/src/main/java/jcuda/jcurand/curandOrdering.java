@@ -49,6 +49,10 @@ public class curandOrdering
      */
     public static final int CURAND_ORDERING_PSEUDO_LEGACY = 103;
     /**
+     * Specific ordering adjusted to the device it is being executed on, provides the best performance
+     */
+    public static final int CURAND_ORDERING_PSEUDO_DYNAMIC = 104;
+    /**
      * Specific n-dimensional ordering for quasirandom results
      */
     public static final int CURAND_ORDERING_QUASI_DEFAULT = 201;
@@ -74,6 +78,7 @@ public class curandOrdering
             case CURAND_ORDERING_PSEUDO_DEFAULT: return "CURAND_ORDERING_PSEUDO_DEFAULT";
             case CURAND_ORDERING_PSEUDO_SEEDED: return "CURAND_ORDERING_PSEUDO_SEEDED";
             case CURAND_ORDERING_PSEUDO_LEGACY: return "CURAND_ORDERING_PSEUDO_LEGACY";
+            case CURAND_ORDERING_PSEUDO_DYNAMIC: return "CURAND_ORDERING_PSEUDO_DYNAMIC";
             case CURAND_ORDERING_QUASI_DEFAULT: return "CURAND_ORDERING_QUASI_DEFAULT";
         }
         return "INVALID curandOrdering: "+n;
